@@ -1,0 +1,35 @@
+plugins {
+    id 'java'
+    id 'com.github.johnrengelman.shadow' version '7.1.2'
+}
+
+group 'com.pattexpattex'
+version '0.0.1'
+
+repositories {
+    mavenCentral()
+    maven {
+        url 'https://jitpack.io'
+    }
+    maven {
+        url 'https://m2.dv8tion.net/releases'
+    }
+}
+
+dependencies {
+    implementation 'com.github.walkyst:lavaplayer-fork:1.3.97'
+    implementation 'ch.qos.logback:logback-classic:1.2.11'
+
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.2'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.2'
+}
+
+jar {
+    manifest {
+        attributes("Main-Class": "com.pattexpattex.kvdownload.Main")
+    }
+}
+
+test {
+    useJUnitPlatform()
+}
